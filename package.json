@@ -36,6 +36,7 @@
         }
       },
       "form":[
+        "datasources.main",
         {
           "key":"htmlfooter",
           "type":"textarea"
