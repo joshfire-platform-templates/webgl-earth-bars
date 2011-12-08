@@ -16,7 +16,7 @@
     },
     "devices": [
       {
-        "devices": "web",
+        "devices": "desktop",
         "startfile": "app/index.html"
       }
     ],
