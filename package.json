@@ -10,6 +10,7 @@
     "webgl"
   ],
   "joshfire": {
+    "devonly": true,
     "mustache":true,
     "images": {
       "small":"http://i.imgur.com/jWsbZ.png",
