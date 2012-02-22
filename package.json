@@ -2,7 +2,7 @@
   "name": "webgl-earth-bars",
   "version": "0.0.1",
   "fullName": "Earth dataviz",
-  "description": "A rotating WebGL earth with data bars",
+  "description": "The template renders geolocated data bars on a rotating 3D globe. The template only works on Web browsers that support WebGL.",
   "keywords": [
     "dataviz",
     "data",
@@ -11,10 +11,9 @@
   ],
   "joshfire": {
     "devonly": true,
-    "mustache":true,
     "images": {
-      "small":"http://i.imgur.com/jWsbZ.png",
-      "big":"http://i.imgur.com/jWsbZ.png"
+      "small": "http://i.imgur.com/jWsbZ.png",
+      "big": "http://i.imgur.com/jWsbZ.png"
     },
     "devices": [
       {
@@ -26,22 +25,22 @@
       "main": {
         "title": "Geo data",
         "description": "Must have geotagging",
-        "multiple":true
+        "multiple": true
       }
     },
     "options": {
-      "schema":{
-        "htmlfooter":{
-          "type":"string",
-          "title":"Footer",
-          "description":"This HTML snippet will appear in the bottom right corner"
+      "schema": {
+        "htmlfooter": {
+          "type": "string",
+          "title": "Footer",
+          "description": "This HTML snippet will appear in the bottom right corner"
         }
       },
-      "form":[
+      "form": [
         "datasources.main",
         {
-          "key":"htmlfooter",
-          "type":"textarea"
+          "key": "htmlfooter",
+          "type": "textarea"
         }
       ]
     }

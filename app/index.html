@@ -1,232 +1,39 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>{{Joshfire.factory.config.app.name}}</title>
-    <meta charset="utf-8">
-    <style type="text/css">
-      html {
-        height: 100%;
-      }
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-      body {
-        margin: 0;
-        padding: 0;
-        background: #000000 url(res/loading.gif) center center no-repeat;
-        color: #ffffff;
-        font-family: sans-serif;
-        font-size: 13px;
-        line-height: 20px;
-        height: 100%;
-      }
+    <title>Earth dataviz</title>
 
-	  #info {
-  		font-size: 12px;
-		line-height: 12px;
-		position: absolute;
-  		bottom: 5px;
-  		background-color: rgba(0,0,0,1);
-		color: rgba(255,255,255,0.4);
-  		border-radius: 5px;
-		right:10px;
-  		padding: 10px;
-		text-align: right;
-	  }
-
-    #info img.logo {
-      width:202px;
-    }
-
-      #title {
-        position: absolute;
-        top: 20px;
-        width: 250px;
-        left: 20px;
-        background-color: rgba(0,0,0,0.7);
-        border-radius: 5px;
-        font: 32px Georgia;
-        border-bottom: 1px solid rgba(255,255,255,0.4);
-        padding: 10px;
-        white-space:nowrap;
-      }
-
-      #currentInfo {
-        width: 350px;
-		height: 100px;
-        position: absolute;
-        left: 20px;
-        top: 100px;
-        border-radius: 5px;
-        background-color: rgba(0,0,0,0.7);
-        padding: 10px;
-      }
-
-
-      #links {
-        position: absolute;
-        bottom: 20px;
-        left: 20px;
-       	background-color: rgba(0,0,0,0.7);
-        border-radius: 5px;
-        font: 14px Georgia;
-        /*border-bottom: 1px solid rgba(255,255,255,0.4);*/
-        padding: 10px;
-      }
-
-	  a {
-	        color: rgba(255,255,255,0.4);
-	        text-decoration: none;
-	  }
-
-      	
-      a.underlined:hover {
-		    text-decoration: underline;
-	  }
-
-      a.activated:hover {
-	        color: #fff;
-	        text-decoration: none;
-			font-size: 24px;
-	  }
-
-      .dataset {
-        font: 16px Georgia;
-        line-height: 26px;
-        height: 30px;
-        text-align: left;
-        float: left;
-        /*width: 290px;*/
-        color: rgba(255, 255, 255, 0.4);
-
-        cursor: pointer;
-        -webkit-transition: all 0.1s ease-out;
-      }
-
-      .dataset.active {
-        font-size: 20px;
-		color:#FFF;
-      }
-
-
-    </style>
-    <script data-joshfire-bootstrap src='http://localhost:40021/bootstrap/4edff69ebc3113c67100028c/4ede61a882e85a000000000a/desktop/'></script>
+    <link rel="stylesheet" type="text/css" href="res/styles.css" />
+    <script data-joshfire-bootstrap></script>
   </head>
+  
   <body>
+    <div id="container"><canvas width="1625" height="889" style="position: absolute; "></canvas></div>
 
-  <div id="container" style="color: rgb(255, 255, 255); font: normal normal normal 13px/20px Arial, sans-serif; cursor: move; "><canvas width="1625" height="889" style="position: absolute; "></canvas></div>
+    <h1 id="title">
+      Earth dataviz
+    </h1>
 
-  <div id="title">
-    {{Joshfire.factory.config.app.name}}
-  </div>
-
-  <div id="currentInfo">
-    <span class="dataset active" id="currentInfoSpan"></span>
-	<br>
-	<!--<span class="dataset"> Internet expenditure and consumption, % of GDP, 2009</span> <br>	-->
-  </div>
+    <div id="currentInfo">
+      <span class="dataset active" id="currentInfoSpan"></span>
+    </div>
  
+    <div id="links" class="activated">
+    </div>
 
- <div id="links" class="activated">
-
-  <!--
-	<a href="http://eg8data.appspot.com/internet-matters" class="dataset activated">Internet Matters</a> <br>
-	<a href="http://eg8data.appspot.com/internet-creates-growth" class="dataset activated">Internet Creates Growth</a> <br>
-	<a href="http://eg8data.appspot.com/internet-is-everywhere" class="dataset activated">Internet is Everywhere</a> <br>
-	<a href="http://eg8data.appspot.com/internet-is-the-future" class="dataset activated">Internet is the Future</a>
-  -->
-</div>
-
- <div id="info">
-	<br>
-	<a href="http://data.gouv.fr/"><img class="logo" src="res/etalab_logo_black.jpg"></a>
-	<br>
-  <a href="http://joshfire.com/"><img class="logo" src="res/joshfire_logo_black.png"></a>
-  <br>
-
-  {{Joshfire.factory.config.template.options.htmlfooter}}
-
-  </div>
+    <div id="info">
+    </div>
  
-  <script type="text/javascript" src="res/ThreeWebGL.js"></script>
-  <script type="text/javascript" src="res/ThreeExtras.js"></script>
-  <script type="text/javascript" src="res/RequestAnimationFrame.js"></script>
-  <script type="text/javascript" src="res/Detector.js"></script>
-  <script type="text/javascript" src="res/Sprite.js"></script>
+    <script type="text/javascript" src="res/ThreeWebGL.js"></script>
+    <script type="text/javascript" src="res/ThreeExtras.js"></script>
+    <script type="text/javascript" src="res/RequestAnimationFrame.js"></script>
+    <script type="text/javascript" src="res/Detector.js"></script>
+    <script type="text/javascript" src="res/Sprite.js"></script>
 
-
-  <script type="text/javascript" src="res/Tween.js"></script>
-  <script type="text/javascript" src="res/globe.js"></script>
-  <script type="text/javascript">
-
-  var globe;
-
-  var switchData = function(i) {
-    
-
-    document.getElementById("currentInfoSpan").innerHTML = Joshfire.factory.config.datasources.main[i].name;
-
-    Joshfire.factory.getDataSource("main").children[i].find({},function(err,data) {
-
-      var formattedData = [];
-
-      for (var y=0,e=null;y<data.entries.length;y++) {
-        e = data.entries[y];
-        formattedData.push({
-          "title":e.title,
-          "lat":e.meta.gsx$lat.$t,
-          "lng":e.meta.gsx$lng.$t,
-          "value":e.meta.gsx$data.$t
-        });
-      }
-
-      globe.addData(formattedData, 100, {format: 'magnitude', name: "main-"+i, animated: false, color_gradient_reversed: true});
-      
-      globe.createPoints();
-      //settime(globe,0)();
-      globe.animate();
-
-    });
-
-  };
-
-  var load = function() {
-      
-    if(!Detector.webgl){
-      Detector.addGetWebGLMessage();
-      return;
-    }
-  
-    var container = document.getElementById('container');
-    globe = new DAT.Globe(container);
-
-    var i, tweens = [];
-
-    var settime = function(globe, t) {
-      return function() {
-        new TWEEN.Tween(globe).to({time: t},500).easing(TWEEN.Easing.Cubic.EaseOut).start();
-      };
-    };
-    	
-    var xhr;
-    TWEEN.start();
-
-    var data = Joshfire.factory.getDataSource("main");
-
-    if (!data) return alert("No data source configured");
-
-    for (var i=0;i<data.children.length;i++) {
-      var name = Joshfire.factory.config.datasources.main[i].name;
-
-      if (data.children.length>1) {
-        document.getElementById("links").innerHTML+='<a href="javascript:switchData('+i+');" class="dataset activated">'+name+'</a> <br>';
-      }
-
-    }
-
-    switchData(0);
-  };
-
-  load();
-
-  
-  </script>
-
-</body></html>
+    <script type="text/javascript" src="res/globe.js"></script>
+    <script type="text/javascript" src="res/main.js"></script>
+  </body>
+</html>
