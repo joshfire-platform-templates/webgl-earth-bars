@@ -9,6 +9,8 @@
  * You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Slightly adapted to add stop and clear methods
  */
 
 /*
@@ -42,6 +44,7 @@ var imgDir = './res/';
 var DAT = DAT || {};
 
 DAT.Globe = function(container, colorFn) {
+  var stopRequested = false;
 
   colorFn = colorFn || function(x, invert_style) {
     var c = new THREE.Color();
@@ -494,8 +497,10 @@ DAT.Globe = function(container, colorFn) {
   }
 
   function animate() {
-    requestAnimationFrame(animate);
-    render();
+    if (!stopRequested) {
+      requestAnimationFrame(animate);
+      render();
+    }
   }
 
   function render() {
@@ -519,6 +524,22 @@ DAT.Globe = function(container, colorFn) {
     renderer.clear();
     renderer.render(scene, camera);
     renderer.render(sceneAtmosphere, camera);
+  }
+
+  function stopAnimation() {
+    stopRequested = true;
+  }
+
+  function startAnimation() {
+    stopRequested = false;
+    animate();
+  }
+
+  function reset() {
+    if (container.firstChild) {
+      container.removeChild(container.firstChild);
+    }
+    init();
   }
 
   init();
@@ -557,6 +578,9 @@ DAT.Globe = function(container, colorFn) {
   this.createPoints = createPoints;
   this.renderer = renderer;
   this.scene = scene;
+  this.stopAnimation = stopAnimation;
+  this.startAnimation = startAnimation;
+  this.reset = reset;
 
   return this;
 

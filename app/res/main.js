@@ -1,7 +1,8 @@
 /**
  * The 3D globe, check globe.js for details.
  */
-var globe;
+var globe = null;
+
 
 /**
  * Selects and renders the data feed
@@ -17,11 +18,16 @@ var switchData = function (idx) {
       lat = null,
       lng = null,
       geo = null,
-      value = 0;
+      value = 0,
+      maxValue = 0;
     
     var isNaN = function (obj) {
       return obj !== obj;
     };
+
+    // Reset the globe
+    globe.stopAnimation();
+    globe.reset();
 
     // Set the name of the data feed that will be displayed
     document.getElementById("currentInfoSpan").innerHTML = Joshfire.factory.config.datasources.main[idx].name;
@@ -30,6 +36,8 @@ var switchData = function (idx) {
       // TODO: alert the user that something went wrong
       return;
     }
+
+    //console.log(data.entries);
 
     for (i = 0; i < data.entries.length; i++) {
       item = data.entries[i];
@@ -70,8 +78,8 @@ var switchData = function (idx) {
 
       // Extract value from property candidates
       value = null;
-      if (item['gsx:value'] || item['gsx:data']) {
-        value = item['gsx:value'] || item['gsx:data'];
+      if (item['gsx:value'] || item['gsx:data'] || item['gsx:magnitude']) {
+        value = item['gsx:value'] || item['gsx:data'] || item['gsx:magnitude'];
       }
       else if (item.ratingValue) {
         value = item.ratingValue;
@@ -95,7 +103,7 @@ var switchData = function (idx) {
         value = geo.elevation;
       }
       if (!value) {
-        continue;
+        value = 1;
       }
       value = parseFloat(value);
 
@@ -113,11 +121,15 @@ var switchData = function (idx) {
         "lng": lng,
         "value": value
       });
+      if (value > maxValue) {
+        maxValue = value;
+      }
     }
 
+    //console.log(formattedData);
     globe.addData(
       formattedData,
-      100,
+      maxValue,
       {
         format: 'magnitude',
         name: 'main-' + idx,
@@ -126,7 +138,7 @@ var switchData = function (idx) {
       }
     );
     globe.createPoints();
-    globe.animate();
+    globe.startAnimation();
   });
 };
 
