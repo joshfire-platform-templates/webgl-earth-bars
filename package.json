@@ -1,8 +1,8 @@
 {
-  "name": "webgl-earth-bars",
+  "name": "earth-dataviz",
   "version": "0.0.1",
   "fullName": "Earth dataviz",
-  "description": "The template renders geolocated data bars on a rotating 3D globe. The template only works on Web browsers that support WebGL.",
+  "description": "The template renders geolocated data bars on a rotating 3D globe. The template only works on Web browsers that support WebGL.\n\nThe template works best with data feeds defined in spreadsheets. The spreadsheets must define the following columns: 'Title', 'Latitude', 'Longitude', and 'Value'. The template will also try to extract coordinates and a meaningful value from other content but the result may vary.",
   "keywords": [
     "dataviz",
     "data",
@@ -12,19 +12,20 @@
   "joshfire": {
     "devonly": true,
     "images": {
-      "small": "http://i.imgur.com/jWsbZ.png",
-      "big": "http://i.imgur.com/jWsbZ.png"
+      "small": "marketing/earth-small.png",
+      "big": "marketing/earth-large.png"
     },
     "devices": [
       {
         "devices": "desktop",
-        "startfile": "app/index.html"
+        "startfile": "app/index.html",
+        "images": "marketing/earth-desktop.png"
       }
     ],
     "datasources": {
       "main": {
         "title": "Geo data",
-        "description": "Must have geotagging",
+        "description": "Must have geotagging. Spreadsheets must define a 'Latitude', 'Longitude' and 'Value' columns.",
         "multiple": true
       }
     },
