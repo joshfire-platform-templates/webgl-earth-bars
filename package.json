@@ -10,6 +10,7 @@
     "webgl"
   ],
   "joshfire": {
+    "devonly": true,
     "images": {
       "small": "marketing/earth-small.png",
       "big": "marketing/earth-large.png"
