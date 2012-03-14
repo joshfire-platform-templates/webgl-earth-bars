@@ -1,8 +1,8 @@
 {
   "name": "webgl-earth-bars",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "fullName": "Earth dataviz",
-  "description": "The template renders geolocated data bars on a rotating 3D globe. The template only works on Web browsers that support WebGL.\n\nThe template works best with data feeds defined in spreadsheets. The spreadsheets must define the following columns: 'Title', 'Latitude', 'Longitude', and 'Value'. The template may also be used to render geo objects from KML sources provided the 'Elevation' is set to a non zero value.",
+  "description": "The Earth dataviz template renders geolocated data bars on a rotating 3D globe. The template is a wrapper around the WebGL Globe experiment and only works on Web browsers that support WebGL. For more details about the experiment, check:\nhttp://www.chromeexperiments.com/detail/webgl-globe/\n\nThe template works best with data feeds defined in spreadsheets. Such spreadsheets must define the following columns: 'Title', 'Latitude', 'Longitude', and 'Value'.\n\nThe template may also be used to render geo objects from KML sources provided the 'Elevation' is set to a non zero value.\n\nPreview pane is disabled because of the dependency on WebGL. Copy and paste the preview address directly on a Web browser that supports WebGL to preview your application.",
   "keywords": [
     "dataviz",
     "data",
@@ -10,7 +10,6 @@
     "webgl"
   ],
   "joshfire": {
-    "devonly": true,
     "images": {
       "small": "marketing/earth-small.png",
       "big": "marketing/earth-large.png"
@@ -19,7 +18,8 @@
       {
         "devices": "desktop",
         "startfile": "app/index.html",
-        "images": "marketing/earth-desktop.png"
+        "images": "marketing/earth-desktop.png",
+        "disablePreview": true
       }
     ],
     "datasources": {
