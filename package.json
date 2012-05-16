@@ -1,6 +1,6 @@
 {
   "name": "webgl-earth-bars",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "fullName": "Earth dataviz",
   "description": "The Earth dataviz template renders geolocated data bars on a rotating 3D globe. The template is a wrapper around the WebGL Globe experiment and only works on Web browsers that support WebGL. For more details about the experiment, check:\nhttp://www.chromeexperiments.com/detail/webgl-globe/\n\nThe template works best with data feeds defined in spreadsheets. Such spreadsheets must define the following columns: 'Title', 'Latitude', 'Longitude', and 'Value'.\n\nThe template may also be used to render geo objects from KML sources provided the 'Elevation' is set to a non zero value.\n\nPreview pane is disabled because of the dependency on WebGL. Copy and paste the preview address directly on a Web browser that supports WebGL to preview your application.",
   "keywords": [
@@ -41,7 +41,7 @@
         "datasources.main",
         {
           "key": "htmlfooter",
-          "type": "textarea"
+          "type": "wysihtml5"
         }
       ]
     }
